@@ -1,6 +1,6 @@
 import pygame
 pygame.init()
-color_screen = (0, 200, 0)
+color_screen = (0, 200, 5)
 screen = pygame.display.set_mode((1000,500))#each pixel represent 1:20
 pygame.display.set_caption("The_Flag")
 # Game loop
