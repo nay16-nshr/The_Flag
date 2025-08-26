@@ -1,6 +1,6 @@
 def create():
     pass
-def move_in_direction():
+def move_in_direction(direction):
     pass
 def should_stop():
     pass
