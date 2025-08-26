@@ -19,13 +19,13 @@ def draw_mine(pos):
     mine_img = pygame.transform.scale(mine_img, (Const.MINE_WIDTH, Const.MINE_HEIGHT))
     screen.blit(mine_img, change_pos_field_to_pos(pos))
 
-def draw(soldier,flag):
+def draw(soldier,flag,dict_grass):
     screen.fill(Const.COLOR_SCREEN)
     draw_soldier(soldier)
     draw_flag(flag)
-    dick_grass = Game_field.create_grass()
-    for pos in dick_grass["list_of_pos_grass"]:
-        draw_grass(pos,dick_grass["img"])
+
+    for pos in dict_grass["list_of_pos_grass"]:
+        draw_grass(pos,dict_grass["img"])
 
 
 
@@ -48,8 +48,9 @@ def draw_dark_mode_game(soldier, game_field):
 def draw_game(state):
     soldier = state["soldier"]
     flag = Game_field.create_flag()
+    dict_grass = Game_field.create_grass()
     pygame.display.flip()
-    draw(soldier,flag)
+    draw(soldier,flag,dict_grass)
     pygame.display.flip()
     if state["is_enter"]:
         draw_dark_mode_game(soldier, Game_field.game_field)

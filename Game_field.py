@@ -3,7 +3,15 @@ import Screen
 import pygame
 import random
 game_field = []
-
+list_of_pos_grass = []
+count_grass = 0
+while count_grass <= Const.GRASS_NUMBER:
+    x = random.randint(0, 22)
+    y = random.randint(0, 46)
+    pos = (y, x)
+    if pos not in list_of_pos_grass:
+        list_of_pos_grass.append(pos)
+        count_grass += 1
 def create_empty_field():
     for row in range(Const.SIZE_ROW):
         game_field.append(["empty"]*Const.SIZE_COL)
@@ -35,13 +43,4 @@ def create_flag():
 def create_grass():
     img_grass = pygame.image.load("grass.png")
     img_grass = pygame.transform.scale(img_grass, (Const.GRASS_WIDTH, Const.GRASS_HEIGHT))
-    list_of_pos_grass = []
-    count_grass = 0
-    while count_grass <= Const.GRASS_NUMBER:
-        x = random.randint(0, 22)
-        y = random.randint(0, 46)
-        pos = (y, x)
-        if pos not in list_of_pos_grass:
-            list_of_pos_grass.append(pos)
-            count_grass += 1
     return {"img": img_grass, "list_of_pos_grass":list_of_pos_grass}
