@@ -54,6 +54,9 @@ def draw_game(state):
     pygame.display.flip()
     if state["is_enter"]:
         draw_dark_mode_game(soldier, Game_field.game_field)
+        pygame.display.flip()
+        pygame.time.wait(1000)
+        state["is_enter"] = False
     pygame.display.flip()
 def change_pos_field_to_pos(pos):
     return (pos[0]*20,pos[1]*20)
