@@ -14,10 +14,10 @@ def create_game_field():
     create_empty_field()
     for i in range(Const.FLAG_WIDTH_FIELD):
         for j in range(Const.FLAG_HEIGHT_FIELD):
-            game_field[Const.FLAG_POS_FIELD[0] + i][Const.FLAG_POS_FIELD[1]+j] = "flag"
+            game_field[Const.FLAG_POS_FIELD[0] + j][Const.FLAG_POS_FIELD[1]+i] = "flag"
     count_mine = 0
     while count_mine < Const.MINE_NUMBER:
-        mine_index = (random.randint(0, 22),random.randint(0,46))
+        mine_index = (random.randrange(0, 22),random.randrange(0,46))
         is_empty = True
         for i in range(3):
             if game_field[mine_index[0]][mine_index[1]+i] != "empty":

@@ -1,5 +1,5 @@
 import pygame
-
+import Game_field
 import Screen
 import soldier
 import Const
@@ -15,8 +15,8 @@ def main():
     pygame.init()
     while  state["is_window_open"]:
         handle_user_events()
-        if state["flag_touch"]:
-            pass
+        if is_flag_touch():
+            state["flag_touch"]= True
         if state["mine_touch"]:
             pass
 
@@ -42,13 +42,19 @@ def handle_user_events():
             if event.key == pygame.K_RETURN:
                 state["is_enter"] = True
 
+def is_flag_touch():
+    position = soldier.position_body(state["soldier"])
+    for i in position:
+        if Game_field.game_field[i[0]][i[1]] == "flag":
+            return True
+    return False
 
-
-
-
-
-
-
+def is_mine_touch():
+    position = soldier.position_legs(state["soldier"])
+    for i in position:
+        if Game_field.game_field[i[0]][i[1]] == "mine":
+            return True
+    return False
 
 
 if __name__ == '__main__':
