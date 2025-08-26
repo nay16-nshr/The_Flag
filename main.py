@@ -37,9 +37,11 @@ def handle_user_events():
                 if soldier.position_body(state["soldier"])[1][0] != Const.SIZE_COL:
                     state["soldier"]["pos"]=( state["soldier"]["pos"][0]+1,  state["soldier"]["pos"][1])
             if event.key == pygame.K_UP:
-                state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]-1)
+                if soldier.position_top_left(state["soldier"])[1] != 0:
+                    state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]-1)
             if event.key == pygame.K_DOWN:
-                state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]+1)
+                if soldier.position_legs(state["soldier"])[0] != Const.SIZE_ROW:
+                    state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]+1)
             if event.key == pygame.K_RETURN:
                 state["is_enter"] = True
 
