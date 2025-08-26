@@ -15,7 +15,7 @@ state = {  "is_window_open": True,
 def main():
     pygame.init()
     Game_field.create_game_field()
-    Screen.draw_game(state)
+
     while  state["is_window_open"]:
         handle_user_events()
         if is_flag_touch():
@@ -23,7 +23,7 @@ def main():
         if state["mine_touch"]:
             pass
 
-    Screen.draw_game(state)
+        Screen.draw_game(state)
 
 def handle_user_events():
     for event in pygame.event.get():
@@ -31,17 +31,15 @@ def handle_user_events():
             state["is_window_open"] = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                state["soldier"]["pos"][0]-=1
-                soldier.move_in_direction("left")
+                if soldier.position_top_left(state["soldier"])[0]!=0:
+                    state["soldier"]["pos"]=( state["soldier"]["pos"][0]-1,  state["soldier"]["pos"][1])
             if event.key == pygame.K_RIGHT:
-                state["soldier"]["pos"][0] += 1
-                soldier.move_in_direction("right")
+                if soldier.position_body(state["soldier"])[1][0] != Const.SIZE_COL:
+                    state["soldier"]["pos"]=( state["soldier"]["pos"][0]+1,  state["soldier"]["pos"][1])
             if event.key == pygame.K_UP:
-                state["soldier"]["pos"][1] += 1
-                soldier.move_in_direction("up")
+                state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]-1)
             if event.key == pygame.K_DOWN:
-                state["soldier"]["pos"][1] -= 1
-                soldier.move_in_direction("down")
+                state["soldier"]["pos"]=( state["soldier"]["pos"][0],  state["soldier"]["pos"][1]+1)
             if event.key == pygame.K_RETURN:
                 state["is_enter"] = True
 
