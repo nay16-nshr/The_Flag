@@ -28,9 +28,12 @@ def create_game_field():
             count_mine += 1
 
 
-
 def create_flag():
-    return {"img": pygame.image.load("flag.png"), "pos": Const.FLAG_POS_FIELD}
+    img_flag = pygame.image.load("flag.png")
+    img_flag = pygame.transform.scale(img_flag, (Const.FLAG_WIDTH, Const.FLAG_HEIGHT))
+    return {"img": img_flag ,"pos": Const.FLAG_POS_FIELD}
 
 def create_grass():
-    return {"img": pygame.image.load("grass.png"), "pos": (random.randint(0,24), random.randint(0,49))}
+    img_grass = pygame.image.load("grass.png")
+    img_grass = pygame.transform.scale(img_grass, (Const.GRASS_WIDTH, Const.GRASS_HEIGHT))
+    return {"img": img_grass, "pos": (random.randint(0,24), random.randint(0,49))}
