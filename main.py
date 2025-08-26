@@ -16,12 +16,13 @@ def main():
     pygame.init()
     Game_field.create_game_field()
 
-    while  state["is_window_open"]:
+    while state["is_window_open"]:
         handle_user_events()
         if is_flag_touch():
             state["flag_touch"]= True
-        if state["mine_touch"]:
-            pass
+            state["is_window_open"] = False
+        if is_mine_touch():
+            state["is_window_open"] =False
 
         Screen.draw_game(state)
 
