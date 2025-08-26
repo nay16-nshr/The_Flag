@@ -1,5 +1,9 @@
+import pygame.image
+
+
 def create():
-    pass
+    return {"img" : pygame.image.load("soldier.png"), "pos" : (0,0)}
+
 def move_in_direction(direction):
     pass
 def should_stop():
