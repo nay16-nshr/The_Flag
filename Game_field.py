@@ -30,7 +30,7 @@ def create_game_field():
 def create_flag():
     img_flag = pygame.image.load("flag.png")
     img_flag = pygame.transform.scale(img_flag, (Const.FLAG_WIDTH, Const.FLAG_HEIGHT))
-    return {"img": img_flag ,"pos": Const.FLAG_POS_FIELD}
+    return {"img": img_flag, "pos": (46,21)}
 
 def create_grass():
     img_grass = pygame.image.load("grass.png")
