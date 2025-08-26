@@ -1,8 +1,12 @@
 import pygame.image
 
+import Const
+
 
 def create():
-    return {"img" : pygame.image.load("soldier.png"), "pos" : (0,0)}
+    img_soldier = pygame.image.load("soldier.png")
+    img_soldier = pygame.transform.scale(img_soldier,(Const.SOLDIER_WIDTH,Const.SOLDIER_HEIGHT))
+    return {"img" : img_soldier, "pos" : (0,0)}
 
 def move_in_direction(direction):
     pass
