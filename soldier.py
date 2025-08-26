@@ -12,11 +12,13 @@ def move_in_direction(direction):
     pass
 def should_stop():
     pass
-def position_top_left():
-    pass
-def position_body():
-    pass
-def position_legs():
-    pass
+def position_top_left(soldier):
+    return soldier["pos"]
+def position_body(soldier):
+    top_pos =position_top_left(soldier)
+    return [top_pos,(top_pos[0],top_pos[1]+1),(top_pos[0]+1,top_pos[1]),(top_pos[0]+1,top_pos[1]+1),(top_pos[0]+2,top_pos[1]),(top_pos[0]+2,top_pos[1]+1),]
+def position_legs(soldier):
+    top_pos = position_top_left(soldier)
+    return [(top_pos[0]+3,top_pos[1]),(top_pos[0]+3,top_pos[1]+1)]
 def is_in_game_field():
     pass
