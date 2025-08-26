@@ -1,4 +1,5 @@
 import pygame
+
 import Game_field
 import Screen
 import soldier
@@ -13,6 +14,8 @@ state = {  "is_window_open": True,
 
 def main():
     pygame.init()
+    Game_field.create_game_field()
+    Screen.draw_game(state)
     while  state["is_window_open"]:
         handle_user_events()
         if is_flag_touch():
